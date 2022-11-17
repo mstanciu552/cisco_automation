@@ -1,0 +1,26 @@
+---
+- name: Send mail with Ansible
+  hosts: localhost
+  vars:
+    body: "{{ body64 | b64decode }}"
+  tasks:
+  - include_vars: ../vars.yml
+  - name: Debug
+    debug:
+      msg: "{{ body }}"
+
+  - name: Send mail using Ansible  
+    community.general.mail:
+      host: smtp.gmail.com
+      port: 465
+      secure: try
+      from: "{{ ansible_sender }}"
+      to: "{{ ansible_receiver }}"
+      subject: "{{ mail_subject }}"
+      body: "{{ body }}"
+      username: "{{ ansible_gmail_user }}"
+      password: "{{ ansible_gmail_password }}"
+      subtype: html
+      charset: utf8
+    delegate_to: localhost
+

@@ -1,0 +1,25 @@
+---
+- hosts: devices
+  connection: local
+
+  tasks:
+       - name: Get Running Configuration
+         ios_command:
+                 commands:
+                         - show running-config
+         register: config
+
+       - name: Create directory to save show output
+         file:
+                 path: ~/.ansible/show_output/running_config
+                 state: directory
+                 owner: mihai
+                 group: mihai
+                 mode: 0775
+                 recurse: yes
+
+
+       - name: save output to local directory
+         copy:
+           content: "{{ config.stdout | replace('\\n', '\n') }}"
+           dest: "~/.ansible/show_output/running_config/{{ inventory_hostname }}.ios"

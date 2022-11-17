@@ -1,0 +1,418 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs/DEV_README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "793740dc81e2ab5861a5c026ec227f40b63eb8b71a5d8ba608cc9c16a9640723",
+   "format": 1
+  },
+  {
+   "name": "tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/hacking",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/hacking/infini_network_space_iscsi_stat.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c601820cb9a7043609ce70bc1d669731712219e6c413c78d4f19d64095283db3",
+   "format": 1
+  },
+  {
+   "name": "tests/hacking/infini_network_space_iscsi_absent.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a9370bdd386675f4b3155bde39abf365792cba9594d60619432e05d438047b7a",
+   "format": 1
+  },
+  {
+   "name": "tests/hacking/infini_network_space_iscsi_present.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "69512a498fc5b2e26955df637742e93d2e8bb5203e14af036866874c94c4aa76",
+   "format": 1
+  },
+  {
+   "name": "tests/hacking/infini_vol_present.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cda432141f42ac43187c0b4c578a4e4fbe3180c8d836eb473669c9524a7ae3f8",
+   "format": 1
+  },
+  {
+   "name": "meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "meta/execution-environment.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8b03e59e1cf4341741306b8d290961e3295a92e7810c0028bb401f2ae1eca745",
+   "format": 1
+  },
+  {
+   "name": "meta/runtime.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a64562102c20fa61d7e538a3868d082f7aa20e32bc3bbccfba7e1dda5da45947",
+   "format": 1
+  },
+  {
+   "name": "bin",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "Makefile",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5b4a6579ca88794361e5d3087c2509e38b39fec4c27cd79cf22089874b7701fc",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "71a38b3408008a4f271c70405c814811cc58d8ac4c5967355b65b4c112efda12",
+   "format": 1
+  },
+  {
+   "name": ".gitlab-ci.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "55ffc971ac57019980f0d6b9748ba0630548afe86d548e950cd952cfd67fd2cf",
+   "format": 1
+  },
+  {
+   "name": "ibox_vars",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "ibox_vars/iboxCICD.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c5e5ea378ed20e66e96c3fafee6c53845ed534c27804ee82ccdeca7edb23d8e5",
+   "format": 1
+  },
+  {
+   "name": "ibox_vars/iboxNNNN_example.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "97812c7706f088a4b0f926a7fee966c20ed788fa5ec42814e4f94d2ba66404f8",
+   "format": 1
+  },
+  {
+   "name": "Makefile-help",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e77dacaa2c83fcabce2a99279afb1012b7c8a739a71668d67c1b3eb1c2d5b9af",
+   "format": 1
+  },
+  {
+   "name": "playbooks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_remove_network_spaces.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "567cc99c829f63ac287e80550884a4698f9c80210eece857150203d8320b57fe",
+   "format": 1
+  },
+  {
+   "name": "playbooks/infinisafe_demo_runtest.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d9b28566237125f820184a36c653281312717e5747c97d95ccf3fc13054739a1",
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_create_snapshots.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a1a29f53a43d35dc13e144bd85ac69eec0513621d869c24c9765f1491b1e2e77",
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_remove_snapshots.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c1847ecb16b3a825ab494a8e992323c63940e9c0f6b9fb705a17e90393b2645d",
+   "format": 1
+  },
+  {
+   "name": "playbooks/infinisafe_demo_setup.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "08e1b350fed21d7dc483e9f5993bb067ee81ac7a4b3385eac75e9e7ae0149ccb",
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_create_network_spaces.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a31ec0f9cd1da16136398b3f860b8ca008945e679475b712a3cbfd09ccdaffe5",
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_create_map_cluster.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "87c95887ad3422b6edf744f462a68437c27315f39539e13af7a8186e8631050d",
+   "format": 1
+  },
+  {
+   "name": "playbooks/inventory",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "93d1758720c0534d6c7902f91dd6dc14b1e429b24f330f5903267910d43c50b4",
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_create_resources.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "460c88d3c0e24d140bfd617171d75a260de62623f80c3dd2e387f265bff06558",
+   "format": 1
+  },
+  {
+   "name": "playbooks/infinisafe_demo_teardown.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f4692d6ddc56c3dbc867e8050a7d5c3faffc7be87bcf22ef4c1476deca9e1a5e",
+   "format": 1
+  },
+  {
+   "name": "playbooks/ansible.cfg",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6946120d2926bdde34018f3507e119c2e5f7d08e74ab25fe42e9ab61c7d07e62",
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_remove_map_cluster.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "576591f3fd874080e7b233231204cf1fbfb89776d1ae0fc645b74c69f686cdf8",
+   "format": 1
+  },
+  {
+   "name": "playbooks/test_remove_resources.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d18446dcba0f4336d00ac91f95d6e1160ab86c758a97cff0251f209b1bcccf87",
+   "format": 1
+  },
+  {
+   "name": "CHANGELOG.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "30a06305303ecac114e75dfb75933f66df76795aa998e8371d822d605cb10532",
+   "format": 1
+  },
+  {
+   "name": "plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_fs.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f71609b55a0fc2338aad22d5ec1134f36b10ed2c34872b8aeef4a0c0a91530bd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_port.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cf74e6de8455ff6bcb21a92a9e57ef553d3d3c7e8dd5f129fb8232a278722b32",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_map.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a6861a1a153a43f0a768f6b785589b343cc2433ce34e0692d8433a78b4864043",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_network_space.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c2c337eb6d3779d083cb486a303a2cf4ef18e76845403ed2489b5a5d96ad9b66",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_vol.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3ae3462878acaab93b0dcf679825f42a5145c8a2a372feb0721e6998fcf760ea",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_export_client.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8888e075b855c174d250f5e1bd58e0967359a805e79b8cceb6371351160f95c7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_pool.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2b1fbb697848bf13228006d18416087df8110a0c303429e2588bdcfea746f887",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_cluster.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "99fe0b39d9e8ae14f3eff5fadf983aa44acd9746f34334d6363b43873fc9f099",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_host.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "466288dcd1d0783075e024cd1733818a5b5d69e7d1e945d6be7cb295731c6ac0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_export.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "172f0fb65f0dd67bc4c0cd1a8ffa1f0faa44fecc420fa1eab4d737a71dbfbd70",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/infini_user.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "df54b8cb13997fa76f082cc8d06a23da6e2a85536ac89daf3427f068d1ae6b0b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/filter",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/filter/psus_filters.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0f88020170134ef6e22aeeeb2c72eeb36427817027b2fd7a6143ea76355690a4",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/infinibox.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3e25f04ed34bd1678dd7e22073f44c5dab1e063a0f588b7160e3abcfa2489629",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/infinibox.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bd8ac7bf81551b5fc165052213bc45fb1f9ccb26115f002d5f1c39a42cecffd4",
+   "format": 1
+  },
+  {
+   "name": "requirements.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a775dab2ec22ff7b5efc293d7e0335d1d224dbcc457226bf2327254562f37d6a",
+   "format": 1
+  },
+  {
+   "name": "requirements-dev.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "84259416e2286c6f6747c6eda6c943370b904e6cc98b3a4c350a38ecddf3db13",
+   "format": 1
+  },
+  {
+   "name": ".gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "12f52626c8ec2b61bf5cdb7dd9f78e8656127c8f69520f62fdc54ac06c2a6732",
+   "format": 1
+  },
+  {
+   "name": "LICENSE",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e77edcc69dd86480e3392a71e6be429cb9576ed59e49bbb2e9dac4a44b28068f",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

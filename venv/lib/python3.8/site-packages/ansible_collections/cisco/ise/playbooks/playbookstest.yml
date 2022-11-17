@@ -1,0 +1,51 @@
+---
+- hosts: ise_servers
+  vars_files:
+    - profiler-services.yml
+  vars:
+    profiler_config: &profiler_config
+      activeDirectory: "{{ profiler_config.activeDirectory | default(omit) }}"
+      dhcp: "{{ profiler_config.dhcp | default(omit) }}"
+      dhcpSpan: "{{ profiler_config.dhcpSpan | default(omit) }}"
+      dns: "{{ profiler_config.dns | default(omit) }}"
+      http: "{{ profiler_config.http | default(omit) }}"
+      netflow: "{{ profiler_config.netflow | default(omit) }}"
+      nmap: "{{ profiler_config.nmap | default(omit) }}"
+      pxgrid: "{{ profiler_config.pxgrid | default(omit) }}"
+      radius: "{{ profiler_config.radius | default(omit) }}"
+      snmpQuery: "{{ profiler_config.snmpQuery | default(omit) }}"
+      snmpTrap: "{{ profiler_config.snpTrap | default(omit) }}"
+
+  gather_facts: false
+  tasks:
+    # Get list of Profiler nodes in environment.
+    - name: Get list of nodes currently in environment.
+      block:
+      - name: Get all Node Deployment
+        cisco.ise.node_deployment_info:
+          filter: []
+          filterType: "AND"
+        register: node_data
+
+      - name: Initialize deployed_profiler list.
+        set_fact:
+          deployed_profiler: []
+
+      - name: Populate deployed_profiler list.
+        set_fact:
+          deployed_profiler: "{{ deployed_profiler + [ item.hostname ] }}"
+        when: '"Profiler" in item.services'
+        loop: "{{ node_data.ise_response }}"
+
+    # Configure intended services on the Profiler nodes.
+    - name: Update Profiler services configuration on nodes.
+      cisco.ise.node_services_profiler_probe_config:
+        state: present
+        hostname: "{{ item }}"
+        <<: *profiler_config
+      loop: "{{ deployed_profiler }}"
+      register: result
+
+    - name: Debug result.
+      ansible.builtin.debug:
+        var: result
