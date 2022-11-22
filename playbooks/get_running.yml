@@ -3,6 +3,8 @@
   connection: local
 
   tasks:
+       - include_vars: ../vars.yml
+
        - name: Get Running Configuration
          ios_command:
                  commands:
@@ -11,7 +13,7 @@
 
        - name: Create directory to save show output
          file:
-                 path: ~/.ansible/show_output/running_config
+                 path: "{{ base_path }}/RUNNING"
                  state: directory
                  owner: mihai
                  group: mihai
@@ -22,4 +24,4 @@
        - name: save output to local directory
          copy:
            content: "{{ config.stdout | replace('\\n', '\n') }}"
-           dest: "~/.ansible/show_output/running_config/{{ inventory_hostname }}.ios"
+           dest: "{{ base_path }}/RUNNING/{{ inventory_hostname }}.ios"

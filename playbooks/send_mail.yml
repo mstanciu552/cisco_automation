@@ -3,11 +3,9 @@
   hosts: localhost
   vars:
     body: "{{ body64 | b64decode }}"
+
   tasks:
   - include_vars: ../vars.yml
-  - name: Debug
-    debug:
-      msg: "{{ body }}"
 
   - name: Send mail using Ansible  
     community.general.mail:

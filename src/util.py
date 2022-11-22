@@ -2,9 +2,43 @@ import os
 import yaml
 import argparse
 import base64
+import subprocess
+import difflib as dl
+
+
+def get_diff(config1, config2):
+    differences = []
+    for diff in dl.unified_diff(config1.split("\n"), config2.split("\n")):
+        differences.append(diff)
+    return "\n".join(differences)
+
+
+def run_ansible():
+    subprocess.run(
+        ["ansible-playbook", "playbooks/get_startup.yml", "-i", "./hosts.ini"]
+    )
+    subprocess.run(
+        ["ansible-playbook", "playbooks/get_running.yml", "-i", "./hosts.ini"]
+    )
+
+
+def isBase64(sb):
+    try:
+        if isinstance(sb, str):
+            # If there's any unicode here, an exception will be thrown and the function will return false
+            sb_bytes = bytes(sb, "ascii")
+        elif isinstance(sb, bytes):
+            sb_bytes = sb
+        else:
+            raise ValueError("Argument must be string or bytes")
+        return base64.b64encode(base64.b64decode(sb_bytes)) == sb_bytes
+    except Exception:
+        return False
+
 
 def format_bash(str):
-    return base64.b64encode(bytes(str, 'utf-8')).decode('utf-8')
+    return base64.b64encode(bytes(str, "utf-8")).decode("utf-8")
+
 
 def load_config(path: str):
     if not path:
@@ -13,18 +47,21 @@ def load_config(path: str):
         print("Config file required")
         exit(1)
 
-    with open(os.path.expanduser(path), 'r') as file:
+    with open(os.path.expanduser(path), "r") as file:
         return yaml.safe_load(file)
-    
+
 
 def format_html(str: str):
     return str.replace("\n", "<br />\n")
 
+
 def format_newline(arr) -> str:
     return arr.split("\n")
 
+
 def convert_to_list(arr) -> str:
     return "\n".join(arr)
+
 
 def check_env(var, err) -> str:
     if not var:
@@ -33,26 +70,21 @@ def check_env(var, err) -> str:
 
     return var
 
-def handle_aruments():
-    parser = argparse.ArgumentParser()
 
-    parser.add_argument('-c', '--config')
+def handle_aruments():
+    parser = argparse.ArgumentParser(add_help=False)
+
+    parser.add_argument("-c", "--config")
+    parser.add_argument("-h", "--help", action="store_true")
 
     return parser.parse_args()
+
 
 def format_ipv4_config(ipv4):
     if not "," in ipv4:
         return [ipv4]
     return ipv4.split(",")
 
-def format_ipv4(ipv4):
-    if "," in ipv4:
-        return ipv4.split(",")
-
-    if ":" in ipv4:
-        pass
-
-    return ipv4
 
 def init(ipv4, username, password):
     ipv4 = format_ipv4_config(ipv4)

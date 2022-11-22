@@ -1,10 +1,14 @@
-from util import format_html, handle_aruments, load_config, format_bash
-from cisco import (
-    get_diff_ideal_startup,
-    get_diff_startup_running,
+import subprocess
+from util import (
+    format_html,
+    handle_aruments,
+    load_config,
+    format_bash,
     run_ansible,
-    subprocess,
+    get_diff,
 )
+from help import print_help
+from Config import Config, ConfigType
 
 
 def send_email(body):
@@ -14,16 +18,23 @@ def send_email(body):
             "ansible-playbook",
             "playbooks/send_mail.yml",
             "-e",
-            f'body64={body}',
+            f"body64={body}",
         ]
     )
 
 
-def main2():
+def main():
+    # TODO ideal_router_path -> find which are routers and which are switches
+    # TODO default Subject
+    # TODO default base_path
     args = handle_aruments()
     config = load_config(args.config)
 
-    # run_ansible()
+    if args.help:
+        print_help()
+        return
+
+    run_ansible()
     html_text = """\
     <html>
     <head></head>
@@ -32,11 +43,23 @@ def main2():
     """
 
     for ip in config["ipv4"]:
+        running_config = Config(ip=ip, type=ConfigType.RUNNING)
+        startup_config = Config(ip=ip, type=ConfigType.STARTUP)
+
+        ideal_config = Config(ip=ip, type=ConfigType.IDEAL)
+
+        diff_ideal_startup = format_html(
+            get_diff(str(ideal_config), str(startup_config))
+        )
+        diff_startup_running = format_html(
+            get_diff(str(startup_config), str(running_config))
+        )
+
         html_text += f"""
 
             <h1><b>Checking template vs. startup [{ip}]:</b></h1>
             <p>
-                {format_html(get_diff_ideal_startup(f"{ip}"))}
+                {diff_ideal_startup}
             </p>
 
         """
@@ -44,7 +67,7 @@ def main2():
 
             <h1><b>Checking startup vs. running [{ip}]:</b></h1>
             <p>
-                {format_html(get_diff_startup_running(f"{ip}"))}
+                {diff_startup_running}
             </p>
 
         """
@@ -58,4 +81,4 @@ def main2():
 
 
 if __name__ == "__main__":
-    main2()
+    main()
