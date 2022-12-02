@@ -1,0 +1,18 @@
+---
+
+- hosts: devices
+  connection: local
+
+  tasks:
+       - include_vars: ../vars.yml
+
+       - name: Get Routing Table
+         ios_command:
+                 commands:
+                         - show ip route
+         register: routing_table
+
+       - name: Show output
+         debug:
+           msg: "{{ routing_table.stdout }}"
+

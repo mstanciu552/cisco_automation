@@ -3,7 +3,7 @@ import tftpy
 from enum import Enum
 from diff import get_diff
 from base64 import b64decode
-from util import handle_aruments, isBase64, load_config
+from util import check_if_router, handle_aruments, isBase64, load_config
 
 
 class ConfigType(Enum):
@@ -36,11 +36,14 @@ class Config:
         if type == ConfigType.IDEAL:
             self.get_tftp(
                 config["tftp_server"],
-                config["ideal_switch_path"],
+                config["baseline_switch_path"]
+                if not check_if_router(self.ip)
+                else config["baseline_router_path"],
                 f"{config['base_path']}/{self.type}/{self.ip}.ios",
             )
         else:
-            self.read_path(f"{config['base_path']}/{self.type}/{self.ip}.ios")
+            path = f"{config['base_path']}/{self.type}/{self.ip}.ios"
+            self.read_path(path)
 
     def read_path(self, path):
         with open(os.path.expanduser(path)) as config:
@@ -51,8 +54,9 @@ class Config:
         return differences
 
     def get_tftp(self, ip: str, path: str, dest: str):
-        if not os.path.exists(os.path.basename(dest)):
-            os.makedirs(os.path.basename(dest))
+        print(os.path.dirname(dest))
+        if not os.path.exists(os.path.dirname(dest)):
+            os.makedirs(os.path.dirname(dest))
         client = tftpy.TftpClient(host=ip)
         client.download(path, dest)
 

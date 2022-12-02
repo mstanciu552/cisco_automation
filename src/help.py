@@ -13,7 +13,8 @@ def print_help():
     \t- mail_subject - subject of mails to be sent
     \t- ipv4 - vector of IPs to be checked
     \t- base_path - path on controller system to a folder that stores configurations
-    \t- ideal_switch_path - filename of ideal configuration on tftp server
+    \t- baseline_switch_path - filename of switch baseline configuration on tftp server
+    \t- baseline_router_path - filename of router baseline configuration on tftp server
     \n\n
     In hosts.ini you have to make a basic Ansible configuration for working with networking devices.
     """

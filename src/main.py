@@ -1,3 +1,6 @@
+#!/home/mihai/cisco_automation/venv/bin/python
+import sys
+import time
 import subprocess
 from util import (
     format_html,
@@ -23,11 +26,7 @@ def send_email(body):
     )
 
 
-def main():
-    # TODO ideal_router_path -> find which are routers and which are switches
-    # TODO default Subject
-    # TODO default base_path
-    args = handle_aruments()
+def main(args):
     config = load_config(args.config)
 
     if args.help:
@@ -81,4 +80,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    args = handle_aruments()
+    if args.daemon:
+        sys.stdout = open("/dev/null", "w")
+        while True:
+            main(args)
+            time.sleep(1 * 60)
+    else:
+        main(args)

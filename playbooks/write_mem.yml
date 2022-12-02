@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  vars:
+    ansible_user: admin
+    ansible_password: Cisco123
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_port: 22
+
+  tasks:
+    - name: Run command to write to memory
+      ios_command:
+        commands:
+          - write mem

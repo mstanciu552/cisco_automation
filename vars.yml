@@ -17,4 +17,6 @@ ipv4:
   - 10.9.0.3
 
 base_path: "/tmp/show_output"
-ideal_switch_path: "SW1.ios"
+
+baseline_switch_path: "SW1.ios"
+baseline_router_path: "R1.ios"

@@ -13,6 +13,16 @@ def get_diff(config1, config2):
     return "\n".join(differences)
 
 
+def check_if_router(ip) -> bool:
+    result = subprocess.run(
+        "ansible-playbook -i hosts.ini playbooks/check_if_router.yml | grep -i failed=1 | awk '{print $1}'",
+        stdout=subprocess.PIPE,
+        shell=True,
+    )
+    switches = result.stdout.decode("utf-8").split("\n")[:-1]
+    return ip not in switches
+
+
 def run_ansible():
     subprocess.run(
         ["ansible-playbook", "playbooks/get_startup.yml", "-i", "./hosts.ini"]
@@ -41,14 +51,19 @@ def format_bash(str):
 
 
 def load_config(path: str):
-    if not path:
+    if not path or path == "":
         path = "./vars.yml"
     if not os.path.isfile(path):
         print("Config file required")
         exit(1)
 
     with open(os.path.expanduser(path), "r") as file:
-        return yaml.safe_load(file)
+        config = yaml.safe_load(file)
+
+        if not os.path.exists(config["base_path"]):
+            os.makedirs(config["base_path"])
+
+        return config
 
 
 def format_html(str: str):
@@ -76,6 +91,7 @@ def handle_aruments():
 
     parser.add_argument("-c", "--config")
     parser.add_argument("-h", "--help", action="store_true")
+    parser.add_argument("-d", "--daemon", action="store_true")
 
     return parser.parse_args()
 
